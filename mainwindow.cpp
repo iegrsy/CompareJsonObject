@@ -59,10 +59,6 @@ void MainWindow::on_btnsearch_clicked()
     jsonSerials = getListSerialNumbers(ui->tejsonlist->toPlainText());
     odsSerials = getListSerialNumbers(ui->teodtlist->toPlainText());
 
-    qDebug()<<odsSerials.size();
-    qDebug()<<jsonSerials.size();
-    qDebug()<<diff.size();
-
     int p = 0;
     int pa = odsSerials.size();
     foreach ( QString os , odsSerials){
@@ -86,10 +82,6 @@ void MainWindow::on_btnsearch_clicked()
 
     ui->tedifflist->clear();
     ui->tedifflist->document()->setPlainText(listtoStr(diff));
-
-    qDebug()<<odsSerials.size();
-    qDebug()<<jsonSerials.size();
-    qDebug()<<diff;
 }
 
 QString MainWindow::listtoStr(QStringList list){
@@ -129,7 +121,6 @@ QStringList MainWindow::getJsonSerialNumbers(QString str){
         for (int i = 0 ; i < array.size() ; i++){
             QJsonObject obj = array.at(i).toObject();
             slist.append(obj.value("Serial").toString());
-            //qDebug()<<obj.value("Mac")<<":"<<obj.value("Serial");
         }
     }
 
