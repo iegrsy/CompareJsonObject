@@ -74,7 +74,7 @@ void MainWindow::on_btnsearch_clicked()
             }
         }
 
-        if (!state)
+        if (!state && !os.isEmpty())
             diff.append(os);
         p++;
         ui->progressBar->setValue((int)((double)p / (double)pa) * 100);
