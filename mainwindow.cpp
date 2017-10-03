@@ -82,6 +82,12 @@ void MainWindow::on_btnsearch_clicked()
 
     ui->tedifflist->clear();
     ui->tedifflist->document()->setPlainText(listtoStr(diff));
+
+    if(ui->tedifflist->toPlainText().isEmpty()){
+        QMessageBox msgbox;
+        msgbox.setText("Test edilmeyen kamera bulunamadı.");
+        msgbox.exec();
+    }
 }
 
 QString MainWindow::listtoStr(QStringList list){
